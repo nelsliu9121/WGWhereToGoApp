@@ -1,4 +1,4 @@
-import { Types as LocationTypes , Creators as LocationCreators } from './locationsActions.js'
+import { Types as LocationTypes , Creators as LocationCreators } from './LocationActions.js'
 
 export const ActionCreators = [
   ...LocationCreators

@@ -1,6 +1,8 @@
-import { StackNavigator } from 'react-navigation'
-import Home from './Home'
+import { DrawerNavigator } from 'react-navigation'
+import HomeContainer from './Home'
+import LocationContainer from './Location'
 
-export default StackNavigator({
-  Home: { screen: Home }
+export default DrawerNavigator({
+  Home: { screen: HomeContainer },
+  Location: { screen: LocationContainer }
 })
