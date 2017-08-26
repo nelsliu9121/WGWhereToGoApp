@@ -2,6 +2,7 @@ env:
   es6: true
   node: true
 extends: 'eslint:recommended'
+parser: babel-eslint
 parserOptions:
   ecmaFeatures:
     experimentalObjectRestSpread: true
@@ -10,10 +11,12 @@ parserOptions:
 plugins:
   - react
   - react-native
+  - class-property
 rules:
   indent:
     - error
     - 2
+  no-unused-vars: 1
   linebreak-style:
     - error
     - windows
@@ -23,3 +26,9 @@ rules:
   semi:
     - error
     - never
+  comma-dangle:
+    - error
+    - always-multiline
+  object-curly-spacing:
+    - error
+    - always
