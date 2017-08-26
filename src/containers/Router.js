@@ -1,8 +1,13 @@
-import { DrawerNavigator } from 'react-navigation'
+import { TabNavigator } from 'react-navigation'
 import HomeContainer from './Home'
 import LocationContainer from './Location'
 
-export default DrawerNavigator({
+export default TabNavigator({
   Home: { screen: HomeContainer },
-  Location: { screen: LocationContainer }
+  Location: { screen: LocationContainer },
+}, {
+  swipeEnabled: true,
+  tabBarOptions: {
+    activeTintColor: '#DA344D',
+  },
 })
