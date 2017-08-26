@@ -10,8 +10,8 @@ class Location extends Component {
 
   style = StyleSheet.create({
     location: {
-      flexDirection: row
-    }
+      flexDirection: 'row',
+    },
   })
 
   render() {
