@@ -14,18 +14,13 @@ let enhancer
 let updateStore = f => f
 if (__DEV__) {
   const installDevTools = require('immutable-devtools')
-  const devTools = global.reduxNativeDevTools || require('remote-redux-devtools')
+  const devTools = require('remote-redux-devtools').composeWithDevTools
 
   installDevTools(Immutable)
   updateStore = devTools.updateStore || updateStore
 
-  enhancer = compose(
+  enhancer = devTools(
     applyMiddleware(...middlewares),
-    devTools({
-      name: Platform.OS,
-      ...require('../package.json').remotedev,
-      ActionCreators,
-    })
   )
 } else {
   enhancer = applyMiddleware(...middlewares)

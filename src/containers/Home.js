@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { StackNavigator } from 'react-navigation'
+import { Subheader } from 'react-native-material-design'
 import {
   StyleSheet,
   Text,
@@ -7,29 +8,28 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-const HomeContainer = StackNavigator({
-  Main: { screen: HomeMain },
-})
-
-export default HomeContainer
-
 class HomeMain extends Component {
-  static navigationOptions = {
-    drawLabel: 'Home',
-    drawIcon: ({ tintColor }) => (
-      <Icon name='home' size={24} style={{ tintColor }} />
-    ),
-  }
+  static navigationOptions = (navigation) => ({
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: '#DA344D',
+    },
+    headerTitleStyle: {
+      color: '#EEE',
+    },
+  })
   styles = StyleSheet.create({
     homeView: {
+      flex: 1,
       backgroundColor: '#2E282A',
     },
     category: {
       flex: 1,
+      alignContent: 'center',
     },
     categoryHeader: {
       flex: 1,
-      color: '#17BEBB',
+      fontSize: 28,
     },
     categoryContent: {
       flex: 4,
@@ -37,13 +37,13 @@ class HomeMain extends Component {
   })
   render() {
     return (
-      <View>
+      <View style={this.styles.homeView}>
         <View style={this.styles.category}>
-          <Text style={this.styles.categoryHeader}>下一堂</Text>
+          <Subheader text='下一堂' color='#17BEBB' />
           <View style={this.styles.categoryContent}></View>
         </View>
         <View style={this.styles.category}>
-          <Text style={this.styles.categoryHeader}>最近的分店</Text>
+          <Subheader text='最近的分店' color='#17BEBB' />
           <View style={this.styles.categoryContent}></View>
         </View>
       </View>
@@ -51,4 +51,11 @@ class HomeMain extends Component {
   }
 }
 
-export { HomeMain }
+const HomeContainer = StackNavigator({
+  Main: { screen: HomeMain },
+})
+HomeContainer.navigationOptions = {
+  title: 'Home',
+}
+
+export default HomeContainer
