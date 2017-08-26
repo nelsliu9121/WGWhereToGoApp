@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 import { Creators as LocationActionCreators } from '../actions/LocationActions'
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   locations: state.locations,
 })
 
@@ -22,17 +22,17 @@ const mapDispatchToProps = (dispatch) => ({
 class LocationsContainer extends Component {
   static navigationOptions = {
     title: 'Locations',
-    tabBarIcon: (<Icon name='pin' size={24} />),
+    tabBarIcon: (<Icon name='map' size={24} />),
   }
   
-  componentWillMount() {
-    this.props.LocationActions.subscribeLocations()
+  componentDidMount() {
+    this.props.LocationActions.fetchLocations()
   }
   
   render() {
     return (
       <View>
-        <Text>World Gym Where To Go</Text>
+        <Text></Text>
       </View>
     )
   }

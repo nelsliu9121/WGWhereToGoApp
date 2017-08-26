@@ -1,10 +1,9 @@
 import Immutable from 'immutable'
 import { Platform } from 'react-native'
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import firebase from 'firebase'
 import reducers from './reducers'
-import { ActionCreators } from './actions'
 import sagas from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -14,7 +13,7 @@ let enhancer
 let updateStore = f => f
 if (__DEV__) {
   const installDevTools = require('immutable-devtools')
-  const devTools = require('remote-redux-devtools').composeWithDevTools
+  const devTools = require('redux-devtools-extension').composeWithDevTools
 
   installDevTools(Immutable)
   updateStore = devTools.updateStore || updateStore
@@ -25,6 +24,15 @@ if (__DEV__) {
 } else {
   enhancer = applyMiddleware(...middlewares)
 }
+
+global.firebase = firebase.initializeApp({
+  apiKey: 'AIzaSyBFS3xZLEjOBOlW9RudLbScoqSPjXQkhpQ',
+  authDomain: 'wgwheretogo.firebaseapp.com',
+  databaseURL: 'https://wgwheretogo.firebaseio.com',
+  projectId: 'wgwheretogo',
+  storageBucket: 'wgwheretogo.appspot.com',
+  messagingSenderId: '369386805312',
+})
 
 export default function configureStore(initialState) {
   const store = createStore(reducers, initialState, enhancer)
@@ -38,11 +46,3 @@ export default function configureStore(initialState) {
   return store
 }
 
-firebase.initializeApp({
-  apiKey: 'AIzaSyBFS3xZLEjOBOlW9RudLbScoqSPjXQkhpQ',
-  authDomain: 'wgwheretogo.firebaseapp.com',
-  databaseURL: 'https://wgwheretogo.firebaseio.com',
-  projectId: 'wgwheretogo',
-  storageBucket: 'wgwheretogo.appspot.com',
-  messagingSenderId: '369386805312'
-})

@@ -1,9 +1,9 @@
 import { fork } from 'redux-saga/effects'
 
-import * as LocationSagas from './LocationSagas'
+import LocationSagas from './LocationSagas'
 
 const rootSagas = function * () {
-  yield * [
+  yield [
     ...LocationSagas,
   ].map((saga) => fork(saga))
 }
