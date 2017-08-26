@@ -1,11 +1,11 @@
 import { TabNavigator } from 'react-navigation'
 import HomeContainer from './Home'
-import LocationContainer from './Location'
+import LocationsContainer from './Locations'
 
 export default TabNavigator({
   Home: { screen: HomeContainer },
   Location: {
-    screen: LocationContainer,
+    screen: LocationsContainer,
     path: 'location/:id',
   },
 }, {
