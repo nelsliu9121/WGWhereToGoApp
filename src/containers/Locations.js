@@ -1,41 +1,13 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import React from 'react'
+import { StackNavigator } from 'react-navigation'
 
-import { Creators as LocationActionCreators } from '../actions/LocationActions'
+import LocationsMain from '../components/Locations/Main'
 
-const mapStateToProps = (state) => ({
-  locations: state.locations,
+const LocationsContainer = StackNavigator({
+  Main: { screen: LocationsMain },
 })
-
-const mapDispatchToProps = (dispatch) => ({
-  LocationActions: bindActionCreators(LocationActionCreators, dispatch),
-})
-
-@connect(mapStateToProps, mapDispatchToProps)
-class LocationsContainer extends Component {
-  static navigationOptions = {
-    title: 'Locations',
-    tabBarIcon: (<Icon name='map' size={24} />),
-  }
-  
-  componentDidMount() {
-    this.props.LocationActions.fetchLocations()
-  }
-  
-  render() {
-    return (
-      <View>
-        <Text></Text>
-      </View>
-    )
-  }
+LocationsContainer.navigationOptions = {
+  title: '分店列表',
 }
 
 export default LocationsContainer
