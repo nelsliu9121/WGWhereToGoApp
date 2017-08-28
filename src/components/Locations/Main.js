@@ -7,11 +7,11 @@ import {
   View,
   SectionList,
 } from 'react-native'
-import { H3 } from 'native-base'
+import { H3, Content, Button } from 'native-base'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import _ from 'lodash'
 
-import Location from './Location'
+import LocationListItem from './LocationListItem'
 
 import { Creators as LocationActionCreators } from '../../actions/LocationActions'
 
@@ -26,8 +26,8 @@ const mapDispatchToProps = (dispatch) => ({
 @connect(mapStateToProps, mapDispatchToProps)
 class LocationsMain extends Component {
   static navigationOptions = {
-    title: 'Locations',
-    tabBarIcon: (<Icon name='map' size={24} />),
+    title: '分店',
+    headerRight: (<Button transparent><Icon name='map-marker' size={24} /></Button>),
   }
 
   styles = StyleSheet.create({
@@ -37,13 +37,20 @@ class LocationsMain extends Component {
     },
     sectionHeader: {
       flex: 1,
-      margin: 15,
+      padding: 15,
       color: '#17BEBB',
+      backgroundColor: '#52474b',
     },
   })
   
   componentWillMount() {
-    this.props.LocationActions.fetchLocations()
+    if (this.props.locations.length <= 0) {
+      this.props.LocationActions.fetchLocations()
+    }
+  }
+
+  navigatorToLocation (location) {
+    this.props.navigation.navigate('Location', { id: location.id, name: location.name })
   }
   
   _sortByCity (locations) {
@@ -57,9 +64,9 @@ class LocationsMain extends Component {
   render() {
     const { locations } = this.props
     return (
-      <View style={this.styles.locationsContainer}>
-        <SectionList sections={this._sortByCity(locations)} renderItem={({ item }) => <Location location={item} key={item.id} />} renderSectionHeader={({ section }) => <H3 style={this.styles.sectionHeader} key={section.key}>{section.key}</H3>} />
-      </View>
+      <Content style={this.styles.locationsContainer}>
+        <SectionList sections={this._sortByCity(locations)} renderItem={({ item }) => <LocationListItem location={item} navigate={() => {this.navigatorToLocation(item)}} />} renderSectionHeader={({ section }) => <H3 style={this.styles.sectionHeader}>{section.key}</H3>} keyExtractor={(d, i) => i} />
+      </Content>
     )
   }
 }
