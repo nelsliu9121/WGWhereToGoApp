@@ -25,10 +25,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 @connect(mapStateToProps, mapDispatchToProps)
 class LocationsMain extends Component {
-  static navigationOptions = {
-    title: '分店',
-    headerRight: (<Button transparent><Icon name='map-marker' size={24} /></Button>),
-  }
+  static navigationOptions = (navigation) => ({
+    title: '找分店',
+    headerRight: (<Button transparent onPress={() => {navigation.navigation.navigate('Map')}}><Icon name='map-marker' size={24} /></Button>),
+  })
 
   styles = StyleSheet.create({
     locationsContainer: {
