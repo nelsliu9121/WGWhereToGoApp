@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { StyleSheet } from 'react-native'
-import { Content, Button } from 'native-base'
+import { Button } from 'react-native-material-ui'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 export default class LocationsMap extends Component {
   static navigationOptions = (navigation) => ({
     title: '地圖找分店',
-    headerRight: (<Button transparent onPress={() => {navigation.navigation.goBack()}}><Icon name='list' size={24} /></Button>),
+    headerRight: (<Button icon='list' text='' onPress={() => {navigation.navigation.goBack()}} />),
   })
 
   styles = StyleSheet.create({

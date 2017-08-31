@@ -1,12 +1,11 @@
 import React from 'react'
-import { Button } from 'native-base'
+import { Button } from 'react-native-material-ui'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-const LocationStar = function () {
+const LocationStar = (props) => {
+  const { star } = props
   return (
-    <Button transparent>
-      <Icon name='star-o' size={24} />
-    </Button>
+    <Button icon={star ? 'star' : 'star-border'} text='' />
   )
 }
 

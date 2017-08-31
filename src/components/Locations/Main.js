@@ -5,10 +5,10 @@ import { bindActionCreators } from 'redux'
 import {
   StyleSheet,
   View,
+  Text,
   SectionList,
 } from 'react-native'
-import { H3, Content, Button } from 'native-base'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import { Button } from 'react-native-material-ui'
 import _ from 'lodash'
 
 import LocationListItem from './LocationListItem'
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
 class LocationsMain extends Component {
   static navigationOptions = (navigation) => ({
     title: '找分店',
-    headerRight: (<Button transparent onPress={() => {navigation.navigation.navigate('Map')}}><Icon name='map-marker' size={24} /></Button>),
+    headerRight: (<Button icon='place' text='' onPress={() => {navigation.navigation.navigate('Map')}} />),
   })
 
   styles = StyleSheet.create({
@@ -37,7 +37,8 @@ class LocationsMain extends Component {
     },
     sectionHeader: {
       flex: 1,
-      padding: 15,
+      fontSize: 16,
+      padding: 16,
       color: '#17BEBB',
       backgroundColor: '#52474b',
     },
@@ -64,9 +65,9 @@ class LocationsMain extends Component {
   render() {
     const { locations } = this.props
     return (
-      <Content style={this.styles.locationsContainer}>
-        <SectionList sections={this._sortByCity(locations)} renderItem={({ item }) => <LocationListItem location={item} navigate={() => {this.navigatorToLocation(item)}} />} renderSectionHeader={({ section }) => <H3 style={this.styles.sectionHeader}>{section.key}</H3>} keyExtractor={(d, i) => i} />
-      </Content>
+      <View style={this.styles.locationsContainer}>
+        <SectionList sections={this._sortByCity(locations)} renderItem={({ item }) => <LocationListItem location={item} navigate={() => {this.navigatorToLocation(item)}} />} renderSectionHeader={({ section }) => <Text style={this.styles.sectionHeader}>{section.key}</Text>} keyExtractor={(d, i) => i} />
+      </View>
     )
   }
 }

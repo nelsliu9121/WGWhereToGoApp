@@ -2,7 +2,7 @@ import Immutable from 'immutable'
 import { Platform } from 'react-native'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import firebase from 'firebase'
+import './utils/firebase'
 import reducers from './reducers'
 import sagas from './sagas'
 
@@ -24,15 +24,6 @@ if (__DEV__) {
 } else {
   enhancer = applyMiddleware(...middlewares)
 }
-
-global.firebase = firebase.initializeApp({
-  apiKey: 'AIzaSyBFS3xZLEjOBOlW9RudLbScoqSPjXQkhpQ',
-  authDomain: 'wgwheretogo.firebaseapp.com',
-  databaseURL: 'https://wgwheretogo.firebaseio.com',
-  projectId: 'wgwheretogo',
-  storageBucket: 'wgwheretogo.appspot.com',
-  messagingSenderId: '369386805312',
-})
 
 export default function configureStore(initialState) {
   const store = createStore(reducers, initialState, enhancer)

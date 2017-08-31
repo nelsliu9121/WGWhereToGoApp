@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import { Container } from 'native-base'
+import { ThemeProvider } from 'react-native-material-ui'
 
 import configureStore from './configureStore'
 import Router from './containers/Router'
@@ -8,12 +8,16 @@ import Router from './containers/Router'
 const store = configureStore()
 
 class App extends Component {
+  theme = {
+
+  }
+
   render() {
     return (
       <Provider store={store}>
-        <Container>
+        <ThemeProvider uiTheme={this.theme}>
           <Router />
-        </Container>
+        </ThemeProvider>
       </Provider>
     )
   }

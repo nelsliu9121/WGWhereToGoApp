@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { H3 } from 'native-base'
+import { Subheader } from 'react-native-material-ui'
 import {
   StyleSheet,
   View,
@@ -25,11 +25,6 @@ class HomeMain extends Component {
       flex: 1,
       alignContent: 'center',
     },
-    categoryHeader: {
-      flex: 1,
-      margin: 5,
-      color: '#17BEBB',
-    },
     categoryContent: {
       flex: 4,
     },
@@ -38,11 +33,11 @@ class HomeMain extends Component {
     return (
       <View style={this.styles.homeView}>
         <View style={this.styles.category}>
-          <H3 style={this.styles.categoryHeader}>下一堂</H3>
+          <Subheader color='#17BEBB' text='下一堂' />
           <View style={this.styles.categoryContent}></View>
         </View>
         <View style={this.styles.category}>
-          <H3 style={this.styles.categoryHeader}>最近的分店</H3>
+          <Subheader color='#17BEBB' text='最近的分店' />
           <View style={this.styles.categoryContent}></View>
         </View>
       </View>

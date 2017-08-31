@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, Image, StyleSheet } from 'react-native'
-import { Text, ListItem, Body, Right } from 'native-base'
+import { Text, View, StyleSheet } from 'react-native'
+import { ListItem } from 'react-native-material-ui'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -15,6 +15,9 @@ class LocationListItem extends Component {
   styles = StyleSheet.create({
     location: {
       flex: 1,
+      borderStyle: 'solid',
+      borderBottomWidth: 1,
+      borderBottomColor: '#ccc',
     },
     locationTitle: {
       color: '#FFF',
@@ -25,18 +28,14 @@ class LocationListItem extends Component {
     },
   })
 
+  toggleStar () {
+    
+  }
+
   render() {
     const { location, navigate } = this.props
     return (
-      <ListItem icon style={this.styles.location} onPress={navigate}>
-        <Body>
-          <Text style={this.styles.locationTitle}>{location.name}</Text>
-        </Body>
-        <Right>
-          <LocationStar star={location.star} />
-          <Icon name='chevron-right' size={24} />
-        </Right>
-      </ListItem>
+      <ListItem onPress={navigate} centerElement={location.name} rightElement={<LocationStar star={location.star} onRightElementPress={() => { this.toggleStar() }} />} />
     )
   }
 }
