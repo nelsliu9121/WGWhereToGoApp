@@ -6,4 +6,5 @@ export const { Types, Creators } = createActions({
   fetchLocations: [],
   fetchLocationsFailed: ['error'],
   locationsReceived: ['locations'],
+  subscribeLocations: [],
 }, {})

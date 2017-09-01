@@ -43,7 +43,7 @@ class LocationsMain extends Component {
       backgroundColor: '#52474b',
     },
   })
-  
+
   componentWillMount() {
     if (this.props.locations.length <= 0) {
       this.props.LocationActions.fetchLocations()
@@ -53,7 +53,7 @@ class LocationsMain extends Component {
   navigatorToLocation (location) {
     this.props.navigation.navigate('Location', { id: location.id, name: location.name })
   }
-  
+
   _sortByCity (locations) {
     if (locations.length <= 0) return []
     return _.filter(_.map(_.groupBy(locations, 'zip_city'), (v, k) => ({
@@ -61,7 +61,7 @@ class LocationsMain extends Component {
       data: v,
     })), (d) => d.key !== 'undefined')
   }
-  
+
   render() {
     const { locations } = this.props
     return (

@@ -29,7 +29,7 @@ class LocationListItem extends Component {
   })
 
   toggleStar () {
-    
+
   }
 
   render() {
