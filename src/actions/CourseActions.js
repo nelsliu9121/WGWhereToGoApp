@@ -1,11 +1,11 @@
 import { createActions } from 'reduxsauce'
 
 const { Types, Creators } = createActions({
-  starCourse: ['id'],
-  unstarCourse: ['id'],
-  fetchCourses: ['locationId', 'roomId'],
+  starCourse: ['locationId', 'roomId', 'year', 'month', 'weekday', 'id'],
+  unstarCourse: ['locationId', 'roomId', 'year', 'month', 'weekday', 'id'],
+  fetchCourses: ['locationId', 'roomId', 'year', 'month'],
   fetchCoursesFailed: ['error'],
-  coursesReceived: ['locations'],
+  coursesReceived: ['courses'],
 }, {})
 
 export { Types as CourseTypes, Creators as CourseCreators }

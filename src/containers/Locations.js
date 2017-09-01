@@ -2,7 +2,7 @@ import React from 'react'
 import { StackNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-import LocationsMain from '../components/Locations/Main'
+import LocationsMain from '../components/Locations/LocationsMain'
 import LocationsMap from '../components/Locations/LocationsMap'
 import Location from '../components/Locations/Location'
 

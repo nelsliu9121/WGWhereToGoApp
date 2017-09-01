@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
-import { StackNavigator } from 'react-navigation'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import {
   StyleSheet,
   View,
   Text,
   SectionList,
 } from 'react-native'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { Button } from 'react-native-material-ui'
 import _ from 'lodash'
 
 import LocationListItem from './LocationListItem'
-
 import { Creators as LocationActionCreators } from '../../actions/LocationActions'
 
 const mapStateToProps = (state) => ({

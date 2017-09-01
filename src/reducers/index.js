@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 
-import LocationsReducer from './LocationReducers.js'
+import LocationsReducers from './LocationReducers'
+import CourseReducers from './CourseReducers'
 
 export default combineReducers({
-  Locations: LocationsReducer,
+  Locations: LocationsReducers,
+  Courses: CourseReducers,
 })
