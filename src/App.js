@@ -9,7 +9,10 @@ const store = configureStore()
 
 class App extends Component {
   theme = {
-
+    palette: {
+      primaryColor: '#DA344D',
+      accentColor: '#17BEBB',
+    },
   }
 
   render() {

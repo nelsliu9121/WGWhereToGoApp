@@ -7,11 +7,9 @@ export default TabNavigator({
   Home: { screen: HomeContainer },
   Location: {
     screen: LocationsContainer,
-    path: 'location/:id',
   },
   Courses: {
     screen: CoursesContainer,
-    path: 'courses/:locationId/:roomId/:year/:month',
   },
 }, {
   swipeEnabled: true,

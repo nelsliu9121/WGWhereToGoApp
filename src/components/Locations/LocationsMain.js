@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Button } from 'react-native-material-ui'
+import { Button, Subheader } from 'react-native-material-ui'
 import _ from 'lodash'
 
 import LocationListItem from './LocationListItem'
@@ -25,20 +25,18 @@ const mapDispatchToProps = (dispatch) => ({
 class LocationsMain extends Component {
   static navigationOptions = (navigation) => ({
     title: '找分店',
+    headerStyle: {
+      backgroundColor: '#DA344D',
+    },
+    headerTitleStyle: {
+      color: '#EEE',
+    },
     headerRight: (<Button icon='place' text='' onPress={() => {navigation.navigation.navigate('Map')}} />),
   })
 
   styles = StyleSheet.create({
     locationsContainer: {
       flex: 1,
-      backgroundColor: '#2E282A',
-    },
-    sectionHeader: {
-      flex: 1,
-      fontSize: 16,
-      padding: 16,
-      color: '#17BEBB',
-      backgroundColor: '#52474b',
     },
   })
 
@@ -64,7 +62,7 @@ class LocationsMain extends Component {
     const { locations } = this.props
     return (
       <View style={this.styles.locationsContainer}>
-        <SectionList sections={this._sortByCity(locations)} renderItem={({ item }) => <LocationListItem location={item} navigate={() => {this.navigatorToLocation(item)}} />} renderSectionHeader={({ section }) => <Text style={this.styles.sectionHeader}>{section.key}</Text>} keyExtractor={(d, i) => i} />
+        <SectionList sections={this._sortByCity(locations)} renderItem={({ item }) => <LocationListItem location={item} navigate={() => {this.navigatorToLocation(item)}} />} renderSectionHeader={({ section }) => <Subheader text={section.key} />} keyExtractor={(d, i) => i} />
       </View>
     )
   }

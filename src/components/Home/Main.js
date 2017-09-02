@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Subheader } from 'react-native-material-ui'
 import {
   StyleSheet,
   View,
 } from 'react-native'
+import { Subheader } from 'react-native-material-ui'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 class HomeMain extends Component {
@@ -19,7 +19,6 @@ class HomeMain extends Component {
   styles = StyleSheet.create({
     homeView: {
       flex: 1,
-      backgroundColor: '#2E282A',
     },
     category: {
       flex: 1,
@@ -33,11 +32,11 @@ class HomeMain extends Component {
     return (
       <View style={this.styles.homeView}>
         <View style={this.styles.category}>
-          <Subheader color='#17BEBB' text='下一堂' />
+          <Subheader text='下一堂' />
           <View style={this.styles.categoryContent}></View>
         </View>
         <View style={this.styles.category}>
-          <Subheader color='#17BEBB' text='最近的分店' />
+          <Subheader text='最近的分店' />
           <View style={this.styles.categoryContent}></View>
         </View>
       </View>
