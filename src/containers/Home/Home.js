@@ -4,10 +4,9 @@ import {
   View,
 } from 'react-native'
 import { Subheader } from 'react-native-material-ui'
-import Icon from 'react-native-vector-icons/FontAwesome'
 
 class HomeMain extends Component {
-  static navigationOptions = (navigation) => ({
+  static navigationOptions = {
     title: '去哪兒',
     headerStyle: {
       backgroundColor: '#DA344D',
@@ -15,7 +14,7 @@ class HomeMain extends Component {
     headerTitleStyle: {
       color: '#EEE',
     },
-  })
+  }
   styles = StyleSheet.create({
     homeView: {
       flex: 1,

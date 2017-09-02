@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { ThemeProvider } from 'react-native-material-ui'
 
 import configureStore from './configureStore'
-import Router from './containers/Router'
+import Router from './navigators/Router'
 
 const store = configureStore()
 

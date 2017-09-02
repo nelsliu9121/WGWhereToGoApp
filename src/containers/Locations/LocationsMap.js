@@ -18,7 +18,6 @@ export default class LocationsMap extends Component {
     },
     locationsMap: {
       ...StyleSheet.absoluteFillObject,
-      backgroundColor: '#000',
     },
   })
 

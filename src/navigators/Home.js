@@ -1,10 +1,10 @@
 import React from 'react'
 import { StackNavigator } from 'react-navigation'
 
-import HomeMain from '../components/Home/Main'
+import Home from '../containers/Home/Home'
 
 const HomeContainer = StackNavigator({
-  Main: { screen: HomeMain },
+  Home: { screen: Home },
 })
 HomeContainer.navigationOptions = {
   title: '去哪兒',

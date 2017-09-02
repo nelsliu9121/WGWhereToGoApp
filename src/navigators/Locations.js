@@ -2,13 +2,13 @@ import React from 'react'
 import { StackNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-import LocationsMain from '../components/Locations/LocationsMain'
-import LocationsMap from '../components/Locations/LocationsMap'
-import Location from '../components/Locations/Location'
+import LocationsMain from '../containers/Locations/LocationsMain'
+import LocationsMap from '../containers/Locations/LocationsMap'
+import Location from '../containers/Locations/Location'
 
 const LocationsContainer = StackNavigator({
-  Main: { screen: LocationsMain },
-  Map: { screen: LocationsMap },
+  LocationsMain: { screen: LocationsMain },
+  LocationsMap: { screen: LocationsMap },
   Location: {
     screen: Location,
     path: '/location/:id',

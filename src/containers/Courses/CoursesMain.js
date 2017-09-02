@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
-  Text,
 } from 'react-native'
 import { Subheader, Toolbar } from 'react-native-material-ui'
 
